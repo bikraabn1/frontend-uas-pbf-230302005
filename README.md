@@ -29,12 +29,56 @@ php artisan serve
 
 ```
 
-### Fitur Tambahan
+### Fitur Tambahan Export PDF
 
 
-```bash
+Method downloadPDF di BukuController
 
-php artisan serve
+```php
 
+    public function downloadPDF()
+    {
+        $response = Http::get("http://localhost:8080/buku");
+        $datas = $response->json();
+
+        $pdf = Pdf::loadView('buku-pdf-view', ['datas' =>  $datas])
+        ->setPaper('a4', 'portrait');
+
+        return $pdf->download('buku.pdf');   
+    }
+
+```
+
+Routes
+
+```php
+
+    public function downloadPDF()
+    {
+        $response = Http::get("http://localhost:8080/buku");
+        $datas = $response->json();
+
+        $pdf = Pdf::loadView('buku-pdf-view', ['datas' =>  $datas])
+        ->setPaper('a4', 'portrait');
+
+        return $pdf->download('buku.pdf');   
+    }
+
+```
+
+View ('buku-pdf-view)
+
+```php
+
+    public function downloadPDF()
+    {
+        $response = Http::get("http://localhost:8080/buku");
+        $datas = $response->json();
+
+        $pdf = Pdf::loadView('buku-pdf-view', ['datas' =>  $datas])
+        ->setPaper('a4', 'portrait');
+
+        return $pdf->download('buku.pdf');   
+    }
 
 ```
