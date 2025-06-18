@@ -19,6 +19,7 @@ Route::get('/',[BukuController::class, 'index']);
 Route::post('/buku',[BukuController::class, 'store'])->name('buku.store');
 Route::put('/buku/{id}',[BukuController::class, 'update'])->name('buku.update');
 Route::delete('/buku/{id}',[BukuController::class, 'destroy'])->name('buku.destroy');
+Route::get('/buku/download-pdf', [BukuController::class, 'downloadPDF'])->name('download-pdf');
 
 Route::get('/peminjaman',[PeminjamanController::class, 'index']);
 Route::post('/peminjaman',[PeminjamanController::class, 'store'])->name('peminjaman.store');

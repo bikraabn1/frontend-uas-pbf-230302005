@@ -28,6 +28,9 @@
                         </ul>
                     </li>
                 </ul>
+                <form class="d-flex" action="{{ route('download-pdf') }}">
+                    <button class="btn btn-outline-success" type="submit">Download PDF</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -54,7 +57,7 @@
                 <input type="number" name="tahun_terbit" class="form-control" id="tahun_terbit">
             </div>
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/buku/download-pdf" type="submit" class="btn btn-primary">Submit</a>
         </form>
 
         <hr class="my-5">
